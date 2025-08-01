@@ -1,3 +1,32 @@
-[gd_scene format=3 uid="uid://dgmr03k82ic8g"]
+[gd_scene load_steps=5 format=3 uid="uid://dgmr03k82ic8g"]
+
+[ext_resource type="PackedScene" uid="uid://bolptiwbp3d3k" path="res://Player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://bcqlhew0ftx6g" path="res://Assets/texture_04.png" id="2_0xm2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(1500, 20)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0xm2m"]
+size = Vector2(1500, 20)
 
 [node name="Main" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(649, 354)
+scale = Vector2(1.27148, 0.792969)
+texture = ExtResource("2_0xm2m")
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(566, 322)
+jump_force = 1
+gravity = 15.0
+speed = 600
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(614, 442)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor/CollisionShape2D"]
+texture = SubResource("PlaceholderTexture2D_0xm2m")
