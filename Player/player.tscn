@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bolptiwbp3d3k"]
+[gd_scene load_steps=7 format=3 uid="uid://bolptiwbp3d3k"]
 
 [ext_resource type="Script" uid="uid://3ds38y7ca1mf" path="res://Player/character_movement.gd" id="1_l8h54"]
+[ext_resource type="Script" uid="uid://nojocmt0o1r1" path="res://Player/hit_box.gd" id="2_4ntmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(50, 50)
@@ -8,6 +9,9 @@ size = Vector2(50, 50)
 [sub_resource type="SpriteFrames" id="SpriteFrames_4ntmi"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_btcbx"]
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ntmi"]
 size = Vector2(50, 50)
 
 [node name="Player" type="CharacterBody2D"]
@@ -23,3 +27,11 @@ sprite_frames = SubResource("SpriteFrames_4ntmi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("PlaceholderTexture2D_btcbx")
+
+[node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("2_4ntmi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_4ntmi")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

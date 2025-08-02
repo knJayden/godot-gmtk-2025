@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl7nky2t058p7"]
+
+[ext_resource type="Script" uid="uid://glb6qrsfffnf" path="res://hurt_box.gd" id="1_sl1jc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcbvg"]
+size = Vector2(30, 30)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qcbvg"]
+size = Vector2(30, 30)
+
+[node name="StaticObstacle" type="Node2D"]
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("1_sl1jc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_qcbvg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = SubResource("PlaceholderTexture2D_qcbvg")

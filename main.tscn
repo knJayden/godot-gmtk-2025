@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgmr03k82ic8g"]
+[gd_scene load_steps=6 format=3 uid="uid://dgmr03k82ic8g"]
 
 [ext_resource type="PackedScene" uid="uid://bolptiwbp3d3k" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://bcqlhew0ftx6g" path="res://Assets/texture_04.png" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bl7nky2t058p7" path="res://obstacle.tscn" id="3_h2yge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(1500, 20)
@@ -18,9 +19,10 @@ texture = ExtResource("2_0xm2m")
 
 [node name="Player" parent="." instance=ExtResource("1_ig7tw")]
 position = Vector2(566, 322)
-jump_force = 1
+jump_force = 500
 gravity = 15.0
-speed = 600
+acceleration = 500
+friction = 250.0
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
@@ -30,3 +32,6 @@ shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="Sprite2D" type="Sprite2D" parent="Floor/CollisionShape2D"]
 texture = SubResource("PlaceholderTexture2D_0xm2m")
+
+[node name="StaticObstacle" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(961, 375)
