@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://glb6qrsfffnf" path="res://hurt_box.gd" id="1_sl1jc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcbvg"]
-size = Vector2(30, 30)
+size = Vector2(30, 300)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qcbvg"]
-size = Vector2(30, 30)
+size = Vector2(30, 300)
 
 [node name="StaticObstacle" type="Node2D"]
 
